@@ -53,6 +53,17 @@ function dkmd {
     popd
 }
 
+
+function dke { 
+    if [ -z "$1" ]; then
+        command docker exec -ti "${PWD##*/}" bash;
+    else
+        command docker exec -ti $1 bash;
+    fi
+    
+}
+
+
 #
 # Aliases
 #
@@ -63,7 +74,6 @@ alias dka='docker attach'
 alias dkb='docker build'
 alias dkd='docker diff'
 alias dkdf='docker system df'
-alias dke='docker exec'
 alias dkE='docker exec -it'
 alias dkh='docker history'
 alias dki='docker images'
